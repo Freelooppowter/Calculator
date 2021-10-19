@@ -1,0 +1,13 @@
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\bin\Debug\SimpleCalculator.exe.config
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\bin\Debug\SimpleCalculator.exe
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\bin\Debug\SimpleCalculator.pdb
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\SimpleCalculator.csprojResolveAssemblyReference.cache
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\SimpleCalculator.Properties.Resources.resources
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\SimpleCalculator.csproj.GenerateResource.Cache
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\SimpleCalculator.exe
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\SimpleCalculator.pdb
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\SimpleCalculator.CalculatorForm.resources
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\bin\Debug\en-US\SimpleCalculator.resources.dll
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\SimpleCalculator.CalculatorForm.en-US.resources
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\en-US\SimpleCalculator.resources.dll
+D:\NetWorkspace\SimpleCalculator\SimpleCalculator\obj\Debug\SimpleCalculator.Properties.Resources.en-US.resources
