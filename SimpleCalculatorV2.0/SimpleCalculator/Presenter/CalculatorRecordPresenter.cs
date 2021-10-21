@@ -1,7 +1,6 @@
-﻿using SimpleCalculator.DataAccess;
+﻿using SimpleCalculator.Domain;
 using SimpleCalculator.Model;
 using System.Collections.Generic;
-using SimpleCalculator.Domain;
 
 namespace SimpleCalculator.Presenter
 {
@@ -13,23 +12,14 @@ namespace SimpleCalculator.Presenter
             _model = CalculatorManager.GetInstance();
         }
 
+        public void OnLoad()
+        {
+            _view.CalculatorRecords = QueryAllCalculatorRecord();
+        }
+
         public void OnRefreshButtonClick()
         {
-            List<CalculatorRecord> calculatorRecords = _model.QueryAllCalculatorRecord();
-            List<CalculatorRecordDTO> calculatorRecordDTOS = new List<CalculatorRecordDTO>();
-            foreach (var record in calculatorRecords)
-            {
-                CalculatorRecordDTO recordDTO = new CalculatorRecordDTO();
-                recordDTO.Id = record.Id;
-                recordDTO.FirstNumber = record.FirstNumber;
-                recordDTO.Operator = record.Operator;
-                recordDTO.SecondNumber = record.SecondNumber;
-                recordDTO.Result = record.Result;
-                recordDTO.OperateDateTime = record.OperateDateTime.ToString("yyyy-MM-dd HH:mm:ss");
-
-                calculatorRecordDTOS.Add(recordDTO);
-            }
-            _view.CalculatorRecords = calculatorRecordDTOS;
+            _view.CalculatorRecords = QueryAllCalculatorRecord();
         }
 
         public void OnDeleteButtonClick()
@@ -69,6 +59,25 @@ namespace SimpleCalculator.Presenter
         private void _model_CalculateCompletedEvent(object sender, CalculateCompletedEventArgs e)
         {
             OnRefreshButtonClick();
+        }
+
+        private List<CalculatorRecordItem> QueryAllCalculatorRecord()
+        {
+            List<CalculatorRecord> calculatorRecords = _model.QueryAllCalculatorRecord();
+            List<CalculatorRecordItem> calculatorRecordItems = new List<CalculatorRecordItem>();
+            foreach (var record in calculatorRecords)
+            {
+                CalculatorRecordItem recordDTO = new CalculatorRecordItem();
+                recordDTO.Id = record.Id;
+                recordDTO.FirstNumber = record.FirstNumber;
+                recordDTO.Operator = record.Operator;
+                recordDTO.SecondNumber = record.SecondNumber;
+                recordDTO.Result = record.Result;
+                recordDTO.OperateDateTime = record.OperateDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+                calculatorRecordItems.Add(recordDTO);
+            }
+            return calculatorRecordItems;
         }
 
         private ICalculatorRecordFormViewable _view;

@@ -1,14 +1,12 @@
-﻿using SimpleCalculator.Domain;
-using SimpleCalculator.Presenter;
+﻿using SimpleCalculator.Presenter;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SimpleCalculator.View
 {
-    public partial class CalculatorRecordForm : Form,ICalculatorRecordFormViewable
+    public partial class CalculatorRecordForm : Form, ICalculatorRecordFormViewable
     {
-
         public CalculatorRecordForm()
         {
             InitializeComponent();
@@ -24,7 +22,7 @@ namespace SimpleCalculator.View
                 object currentRowData = calculatorRecordDataGridView.CurrentRow.DataBoundItem;
                 if (currentRowData != null)
                 {
-                    CalculatorRecordDTO calculator = currentRowData as CalculatorRecordDTO;
+                    CalculatorRecordItem calculator = currentRowData as CalculatorRecordItem;
                     if (calculator != null)
                         return calculator.Id;
                 }
@@ -32,7 +30,7 @@ namespace SimpleCalculator.View
             }
         }
 
-        public List<CalculatorRecordDTO> CalculatorRecords
+        public List<CalculatorRecordItem> CalculatorRecords
         {
             set
             {
@@ -57,7 +55,7 @@ namespace SimpleCalculator.View
 
         private void CalculatorRecordForm_Load(object sender, EventArgs e)
         {
-            _presenter.OnRefreshButtonClick();
+            _presenter.OnLoad();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

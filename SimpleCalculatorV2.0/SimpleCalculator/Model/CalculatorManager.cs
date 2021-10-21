@@ -1,7 +1,7 @@
-﻿using System;
+﻿using SimpleCalculator.DataAccess;
+using SimpleCalculator.Domain;
+using System;
 using System.Collections.Generic;
-using SimpleCalculator.DataAccess;
-using System.Linq;
 
 namespace SimpleCalculator.Model
 {
@@ -56,24 +56,16 @@ namespace SimpleCalculator.Model
             {
                 try
                 {
-                    using (CalculatingContext dbContext = new CalculatingContext())
-                    {
-                        CalculatorRecord calculator = new CalculatorRecord();
-                        calculator.FirstNumber = firstNumber;
-                        calculator.SecondNumber = secondNumber;
-                        calculator.Operator = strOperator;
-                        calculator.Result = doubleResult;
-                        calculator.OperateDateTime = DateTime.Now;
+                    CalculatorRecord calculator = new CalculatorRecord();
+                    calculator.FirstNumber = firstNumber;
+                    calculator.SecondNumber = secondNumber;
+                    calculator.Operator = strOperator;
+                    calculator.Result = doubleResult;
+                    calculator.OperateDateTime = DateTime.Now;
 
-                        dbContext.CalculatorRecords.Add(calculator);
-                        dbContext.SaveChanges();
-                    }
+                    _repository.SaveCalculator(calculator);
                 }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
+                catch (Exception ex) { throw ex; }
 
                 CalculateCompletedEventArgs eventArgs = new CalculateCompletedEventArgs { Result = doubleResult };
                 FireCalculateCompletedEvent(eventArgs);
@@ -84,29 +76,12 @@ namespace SimpleCalculator.Model
 
         public List<CalculatorRecord> QueryAllCalculatorRecord()
         {
-            using (CalculatingContext db = new CalculatingContext())
-            {
-                var query = from record in db.CalculatorRecords orderby record.Id select record;
-                return query.ToList();
-            }
+            return _repository.QueryAllCalculatorRecord();
         }
 
         public bool DeleteCalculatorRecord(int Id)
         {
-            using (CalculatingContext db = new CalculatingContext())
-            {
-                CalculatorRecord calculatorRecord = db.CalculatorRecords.Find(Id);
-                if (calculatorRecord != null)
-                {
-                    db.CalculatorRecords.Remove(calculatorRecord);
-                    db.SaveChanges();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+            return _repository.DeleteCalculator(Id);
         }
 
         public event EventHandler<CalculateCompletedEventArgs> CalculateCompletedEvent;
@@ -121,6 +96,8 @@ namespace SimpleCalculator.Model
         }
 
         private CalculatorManager() { }
+
+        private CalculatorRepository _repository = new CalculatorRepository();
     }
 
     public class CalculateCompletedEventArgs : EventArgs

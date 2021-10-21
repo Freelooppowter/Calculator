@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using SimpleCalculator.View;
-using System.Threading;
+﻿using SimpleCalculator.View;
+using System;
 using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace SimpleCalculator
 {
