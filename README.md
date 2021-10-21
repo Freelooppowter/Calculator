@@ -1,11 +1,12 @@
 该工程是入职海纳医信学习内镜心电代码时写的Demo 四则运算计算器
-涉及的知识点有 MVP模式(Model、View、Presenter)、多语言化、Mapper、EF、Ioc
+涉及的知识点有 MVP模式(Model、View、Presenter)、多语言化、观察者模式、EF、Ioc
 MVP模式的核心思想是 将UI里的逻辑代码放到Presenter层里 将业务逻辑层的代码放在Model层 
 View里一般包括一个UI接口和接口实现类(如代码里的ICalculatorFormable和CalculatorForm),界面只用于展示，而提供数据和得到数据展示到控件中这类的行为和涉及的数据（属性）需要定义在接口中，
 Presenter依赖View里的接口，依赖Model
 UI继承View里的接口，依赖Presenetr.
 
 目前已实现MVP模式的逻辑结构分层和多语言化 2021.10.19
+<<<<<<< HEAD
 
 
 常用git操作命令
@@ -27,3 +28,5 @@ git push <远程地址别名> <本地分支名>
 
 如果本地版本与远程版本有差异，但又要强制推送可以使用 --force 参数：
 git push --force origin master
+=======
+>>>>>>> 293b27845b31022cc5964fc172a529916363eabd

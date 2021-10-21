@@ -61,8 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\CalculatingContext.cs" />
-    <Compile Include="DataAccess\Calculator.cs" />
-    <Compile Include="Domain\CalculatorRecordDTO.cs" />
+    <Compile Include="DataAccess\CalculatorRepository.cs" />
+    <Compile Include="Domain\Calculator.cs" />
     <Compile Include="Migrations\202110200955095_InitialCreate.cs" />
     <Compile Include="Migrations\202110200955095_InitialCreate.designer.cs">
       <DependentUpon>202110200955095_InitialCreate.cs</DependentUpon>
@@ -72,6 +72,7 @@
       <DependentUpon>202110201327339_Edit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Presenter\CalculatorRecordItem.cs" />
     <Compile Include="Presenter\CalculatorRecordPresenter.cs" />
     <Compile Include="Presenter\CalculatorResultFormPrenster.cs" />
     <Compile Include="Presenter\ICalculatorRecordFormViewable.cs" />
