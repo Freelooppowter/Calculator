@@ -46,6 +46,31 @@ namespace SimpleCalculator.Presenter
             }
         }
 
+        public void OnHandlerCreated()
+        {
+            Observe();
+        }
+
+        public void OnHandleDestroyed()
+        {
+            UnObserve();
+        }
+
+        private void Observe()
+        {
+            _model.CalculateCompletedEvent += _model_CalculateCompletedEvent;
+        }
+
+        private void UnObserve()
+        {
+            _model.CalculateCompletedEvent -= _model_CalculateCompletedEvent;
+        }
+
+        private void _model_CalculateCompletedEvent(object sender, CalculateCompletedEventArgs e)
+        {
+            OnRefreshButtonClick();
+        }
+
         private ICalculatorRecordFormViewable _view;
 
         private CalculatorManager _model;

@@ -155,6 +155,9 @@
   <data name="refreshButton.Text" xml:space="preserve">
     <value>刷新</value>
   </data>
+  <data name="refreshButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;refreshButton.Name" xml:space="preserve">
     <value>refreshButton</value>
   </data>

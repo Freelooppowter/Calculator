@@ -13,6 +13,8 @@ namespace SimpleCalculator.View
         {
             InitializeComponent();
             _presenter = new CalculatorRecordPresenter(this);
+            this.HandleCreated += CalculatorRecordForm_HandleCreated;
+            this.HandleDestroyed += CalculatorRecordForm_HandleDestroyed;
         }
 
         public int SelectedRowId
@@ -41,6 +43,16 @@ namespace SimpleCalculator.View
         public void ShowMessage(string strMessage)
         {
             MessageBox.Show(strMessage);
+        }
+
+        private void CalculatorRecordForm_HandleCreated(object sender, EventArgs e)
+        {
+            _presenter.OnHandlerCreated();
+        }
+
+        private void CalculatorRecordForm_HandleDestroyed(object sender, EventArgs e)
+        {
+            _presenter.OnHandleDestroyed();
         }
 
         private void CalculatorRecordForm_Load(object sender, EventArgs e)

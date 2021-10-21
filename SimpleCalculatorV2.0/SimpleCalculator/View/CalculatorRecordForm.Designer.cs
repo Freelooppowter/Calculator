@@ -67,6 +67,8 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.calculatorRecordDataGridView);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CalculatorRecordForm";
             this.Load += new System.EventHandler(this.CalculatorRecordForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.calculatorRecordDataGridView)).EndInit();
